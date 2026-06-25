@@ -16,8 +16,10 @@ class NoteController extends Controller
  
         // Pass $notes to the view
         return view('notes.index', compact('notes'));
-
+ 
     }
+
+
 
     /**
      * Show the form for creating a new resource.

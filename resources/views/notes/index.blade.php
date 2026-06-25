@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-    <a href="search.php">Search</a>
+    <a href="notes.search">Search</a>
     <h1>All Notes</h1>
     @if (session('success'))
     <div style="background:#d4edda; padding:12px; border-radius:4px; margin:12px 0">
