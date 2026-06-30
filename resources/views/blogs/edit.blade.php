@@ -9,6 +9,7 @@
                 <input type="file" name="image" id="image" class="mt-1 block w-full">
                 @if($blog->image)
                     <p class="mt-2 text-sm text-gray-500">Current image: {{ $blog->image }}</p>
+                    image: <img src="{{ asset('images/' . $blog->image) }}" alt="{{$blog->title}}" class="w-64 h-48 object-cover object-center mt-2">
                 @endif
             </div>
 

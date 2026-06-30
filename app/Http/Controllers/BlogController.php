@@ -70,15 +70,18 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title' => 'required',
             'content' => 'required'
         ]);
 
-        $image = $request->file('image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName);
+        $imageName = $blog->image;
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+        }
 
         $blog->image = $imageName;
         $blog->title = $request->title;
